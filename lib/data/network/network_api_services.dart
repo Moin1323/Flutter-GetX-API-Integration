@@ -32,10 +32,13 @@ class NetworkApiServices extends BaseApiServices {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       case 400:
-        throw InvalidUrlException();
+        dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
+      case 404:
+        throw FetchDataException("Resource not found. Status Code : 404");
       default:
         throw FetchDataException(
-            "Error occured while fetching data from server.\nStatus Code : ${response.statusCode.toString()}");
+            "Error occurred while fetching data from server.\nStatus Code : ${response.statusCode.toString()}");
     }
   }
 
@@ -48,7 +51,10 @@ class NetworkApiServices extends BaseApiServices {
     dynamic responseJson;
     try {
       final response = await http
-          .post(Uri.parse(url), body: jsonEncode(data))
+          .post(
+            Uri.parse(url),
+            body: data,
+          )
           .timeout(const Duration(seconds: 10));
       responseJson = returnResponse(response);
     } on SocketException {
@@ -57,6 +63,9 @@ class NetworkApiServices extends BaseApiServices {
       throw RequestTimOut();
     }
 
+    if (kDebugMode) {
+      print(responseJson);
+    }
     return responseJson;
   }
 }

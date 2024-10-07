@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_api/res/getx_localization/languages.dart';
 import 'package:getx_api/res/routes/app_routes.dart';
-import 'package:getx_api/view/splash_screen.dart';
+import 'package:getx_api/view/splash/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const SplashView(),
       getPages: AppRoutes.appRoutes(),
     );
   }
