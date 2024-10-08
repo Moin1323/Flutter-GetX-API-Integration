@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getx_api/res/colors/app_colors.dart';
 import 'package:getx_api/view/services/splash_services.dart';
 
 class SplashView extends StatefulWidget {
@@ -19,8 +20,6 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.teal,
-    );
+    return const Scaffold(backgroundColor: AppColors.primary);
   }
 }
