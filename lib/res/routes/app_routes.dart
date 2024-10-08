@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:getx_api/res/routes/routes_name.dart';
 import 'package:getx_api/view/home/home_view.dart';
-import 'package:getx_api/view/login/login_view.dart';
+import 'package:getx_api/view/auth/login/login_view.dart';
 import 'package:getx_api/view/splash/splash_view.dart';
 
 class AppRoutes {

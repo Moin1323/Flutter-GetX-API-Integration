@@ -8,7 +8,6 @@ class SplashServices {
   void isLogin() {
     userPreferences.getUser().then(
       (value) {
-        print(value.token);
         if (value.token!.isEmpty || value.token.toString() == 'null') {
           Timer(
             const Duration(seconds: 3),
